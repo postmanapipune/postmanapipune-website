@@ -5,13 +5,15 @@ import { db } from '@/libs/firebase.config';
 import { collection, addDoc } from 'firebase/firestore';
 import { FaInstagram } from "react-icons/fa";
 import Image from 'next/image';
-import { Twitter, Linkedin, Github, ArrowRight, Mail, Calendar, MapPin, ExternalLink } from 'lucide-react';
+import { Twitter, Linkedin, Github, ArrowRight, Mail, Calendar, MapPin, ExternalLink, X } from 'lucide-react'; // Added X icon
 import { Menu } from 'lucide-react';
 import { Users,Code,Globe, Clock} from 'lucide-react';
 import { Zap } from 'lucide-react';
 import { Package,Database } from 'lucide-react';
 import { MessageSquare } from 'lucide-react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+
+
 const PostmanCommunityWebsite = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -101,7 +103,9 @@ const PostmanCommunityWebsite = () => {
       transition: { duration: 0.3, ease: "easeInOut" }
     }
   };
-
+  const handleMobileLinkClick = () => {
+    setMobileMenuOpen(false);
+  };
   const float = {
     initial: { y: 0 },
     animate: {
@@ -1359,110 +1363,117 @@ const PostmanCommunityWebsite = () => {
 
       {/* Footer with animations */}
       <footer className="bg-slate-900 border-t border-slate-800">
-        <div className="container mx-auto px-4 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <motion.div 
-              className="md:col-span-2"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="flex items-center space-x-2 mb-6">
-                <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center shadow-lg shadow-orange-500/20">
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <motion.div 
+            className="md:col-span-2"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex items-center space-x-2 mb-6">
+              <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center shadow-lg shadow-orange-500/20">
                 <img src="postmanlogo.png" alt="" />
-                </div>
-                <div className="text-xl font-bold">
-                  <span>Postman Community Pune</span>
-                 
-                </div>
               </div>
-              
-              <p className="text-gray-400 mb-6 max-w-md">
-                A vibrant community of API enthusiasts in Pune, dedicated to knowledge sharing, collaboration, and advancing the API ecosystem.
-              </p>
-              
-              <div className="flex space-x-4">
-                <motion.a 
-                  href="#" 
-                  className="text-gray-400 hover:text-white transition-colors"
-                  whileHover={{ scale: 1.2, color: "#1DA1F2" }}
-                >
-                  <Twitter className="w-5 h-5" />
-                </motion.a>
-                <motion.a 
-                  href="#" 
-                  className="text-gray-400 hover:text-white transition-colors"
-                  whileHover={{ scale: 1.2, color: "#0A66C2" }}
-                >
-                  <Linkedin className="w-5 h-5" />
-                </motion.a>
-                <motion.a 
-                  href="#" 
-                  className="text-gray-400 hover:text-white transition-colors"
-                  whileHover={{ scale: 1.2, color: "#CBD5E1" }}
-                >
-                  <Github className="w-5 h-5" />
-                </motion.a>
+              <div className="text-xl font-bold">
+                <span>Postman Community Pune</span>
               </div>
-            </motion.div>
+            </div>
             
-            <motion.div 
-              className="space-y-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <h4 className="font-bold text-lg mb-4">Quick Links</h4>
-              {["About Us", "Events", "Speakers", "Resources", "Blog", "Contact"].map((item, index) => (
-                <motion.a 
-                  key={index}
-                  href="#" 
-                  className="block text-gray-400 hover:text-orange-500 transition-colors"
-                  whileHover={{ x: 5 }}
-                >
-                  {item}
-                </motion.a>
-              ))}
-            </motion.div>
+            <p className="text-gray-400 mb-6 max-w-md">
+              A vibrant community of API enthusiasts in Pune, dedicated to knowledge sharing, collaboration, and advancing the API ecosystem.
+            </p>
             
-            <motion.div 
-              className="space-y-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <h4 className="font-bold text-lg mb-4">Contact</h4>
-              <p className="text-gray-400">Pune, Maharashtra, India</p>
-              <p className="text-gray-400">postmancommunitypune@gmail.com</p>
-              <p className="text-gray-400">+91 7889564517</p>
-              
-              <div className="pt-4">
-                <motion.button 
-                  className="bg-gradient-to-r from-orange-500 via-red-500 to-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Get in Touch
-                </motion.button>
-              </div>
-            </motion.div>
-          </div>
+            <div className="flex space-x-4">
+              <motion.a 
+                href="https://www.linkedin.com/company/postmanapipune/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                whileHover={{ scale: 1.2, color: "#0A66C2" }}
+              >
+                <Linkedin className="w-5 h-5" />
+              </motion.a>
+              <motion.a 
+                href="https://www.instagram.com/postman_pune/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                whileHover={{ scale: 1.2, color: "#E1306C" }}
+              >
+                <FaInstagram className="w-5 h-5" />
+              </motion.a>
+            </div>
+          </motion.div>
           
           <motion.div 
-            className="border-t border-slate-800 mt-12 pt-8 text-center text-gray-500 text-sm"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            className="space-y-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.6 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <p>© {new Date().getFullYear()} Postman Community Pune. All rights reserved.</p>
+            <h4 className="font-bold text-lg mb-4">Quick Links</h4>
+            {[
+              { name: "About Us", link: "#about" },
+              { name: "Events", link: "#events" },
+              { name: "Speakers", link: "#speakers" },
+              { name: "Resources", link: "#community" },
+              { name: "Blog", link: "https://blog.postman.com/" },
+              { name: "Resources", link: "https://learning.postman.com/docs/introduction/overview/" },
+              { name: "Contact", link: "#community" }
+            ].map((item, index) => (
+              <motion.a 
+                key={index}
+                href={item.link} 
+                target={item.name === "Blog" ? "_blank" : "_self"}
+                rel={item.name === "Blog" ? "noopener noreferrer" : ""}
+                className="block text-gray-400 hover:text-orange-500 transition-colors"
+                whileHover={{ x: 5 }}
+                onClick={item.name !== "Blog" ? handleMobileLinkClick : undefined}
+              >
+                {item.name}
+              </motion.a>
+            ))}
+          </motion.div>
+          
+          <motion.div 
+            className="space-y-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <h4 className="font-bold text-lg mb-4">Contact</h4>
+            <p className="text-gray-400">Pune, Maharashtra, India</p>
+            <p className="text-gray-400">postmancommunitypune@gmail.com</p>
+            <p className="text-gray-400">+91 7889564517</p>
+            
+            <div className="pt-4">
+              <motion.a 
+                href="mailto:postmancommunitypune@gmail.com"
+                className="inline-block bg-gradient-to-r from-orange-500 via-red-500 to-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get in Touch
+              </motion.a>
+            </div>
           </motion.div>
         </div>
-      </footer>
-
+        
+        <motion.div 
+          className="border-t border-slate-800 mt-12 pt-8 text-center text-gray-500 text-sm"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <p>© {new Date().getFullYear()} Postman Community Pune. All rights reserved.</p>
+        </motion.div>
+      </div>
+    </footer>
       {/* Back to top button */}
       <motion.button 
         className="fixed bottom-8 right-8 bg-slate-800 border border-slate-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-40 hover:bg-orange-500 transition-colors duration-300"
