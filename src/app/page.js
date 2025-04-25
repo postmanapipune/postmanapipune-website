@@ -178,7 +178,7 @@ const PostmanCommunityWebsite = () => {
               whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(255, 123, 41, 0.5)" }}
               whileTap={{ scale: 0.95 }}
             >
-              Join Us
+              Call For Proposals
             </motion.button>
             </a>
             
